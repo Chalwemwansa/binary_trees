@@ -8,17 +8,20 @@
  */
 int helper_f(const binary_tree_t *tree)
 {
-	int sum = 0;
+	int sum = 0, tmp = 0, total = 0;
 
 	if (tree == NULL)
 		return (0);
 	if (tree->right != NULL || tree->left != NULL)
-		return (1);
+	{
+		sum = helper_f(tree->right) + 1;
+		tmp = helper_f(tree->left) + 1;
+		total = sum + tmp;
+	}
+	helper_f(tree->right);
+	helper_f(tree->left);
 
-	sum += helper_f(tree->left);
-	sum += helper_f(tree->right);
-
-	return (sum);
+	return (total);
 }
 
 /**
@@ -32,5 +35,5 @@ size_t binary_tree_nodes(const binary_tree_t *tree)
 	if (tree == NULL)
 		return (0);
 
-	return (helper_f(tree));
+	return (helper_f(tree) / 2);
 }
