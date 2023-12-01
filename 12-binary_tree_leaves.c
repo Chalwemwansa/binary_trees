@@ -31,9 +31,11 @@ int helper_f(const binary_tree_t *tree)
  */
 size_t binary_tree_leaves(const binary_tree_t *tree)
 {
+	int result;
+	
 	if (tree == NULL)
 		return (0);
-	int result = helper_f(tree);
+	result = helper_f(tree);
 	if (result != 1)
 		result = result / 2;
 	return ((size_t)result);
