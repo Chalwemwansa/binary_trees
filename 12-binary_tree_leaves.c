@@ -17,7 +17,7 @@ int helper_f(const binary_tree_t *tree)
 			return (1);
 		sum = helper_f(tree->right);
 		tmp = helper_f(tree->right);
-		total += (sum + tmp);
+		total = (sum + tmp);
 	}
 
 	return (total);
@@ -36,5 +36,5 @@ size_t binary_tree_leaves(const binary_tree_t *tree)
 	int result = helper_f(tree);
 	if (result != 1)
 		result = result / 2;
-	return (result);
+	return ((size_t)result);
 }
