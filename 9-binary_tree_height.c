@@ -1,6 +1,23 @@
 #include "binary_trees.h"
-#include <math.h>
 
+/**
+ * helper_f - gets the height of the tree
+ *
+ * @tree: the tree in consideration
+ * Return: the height
+ */
+
+size_t helper_f(const binary_tree_t *tree)
+{
+	size_t sum = 0, tmp = 0;
+
+	if (tree != NULL)
+	{
+		sum = helper_f(tree->left) + 1;
+		tmp = helper_f(tree->right) + 1;
+	}
+	return ((sum < tmp) ? tmp : sum);
+}
 /**
  * binary_tree_height - finds the height of a binary tree
  *
@@ -9,12 +26,8 @@
  */
 size_t binary_tree_height(const binary_tree_t *tree)
 {
-	size_t sum = -1;
+	if (tree == NULL)
+		return (0);
 
-	if (tree != NULL)
-	{
-		sum = binary_tree_height(tree->left) + 1;
-		sum = binary_tree_height(tree->right) + 1;
-	}
-	return (sum);
+	return (helper_f(tree) - 1);
 }
