@@ -25,7 +25,8 @@ int helper_f(const binary_tree_t *tree)
 }
 
 /**
- * binary_tree_nodes - counts the number of nodes in the tree that at least one node
+ * binary_tree_nodes - counts the number of nodes in the tree
+ * with at least one node
  *
  * @tree: the tree to be used for counting
  * Return: the number of nodes that have at least one node
