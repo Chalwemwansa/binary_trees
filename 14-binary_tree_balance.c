@@ -30,6 +30,7 @@ int helper_f(const binary_tree_t *tree, int flag)
  */
 int binary_tree_balance(const binary_tree_t *tree)
 {
-
-	return ((helper_f(tree, 1) - 1) - (helper_f(tree, 0) - 1));
+	if (tree == NULL)
+		return (0)
+	return (helper_f(tree, 1) - helper_f(tree, 0));
 }
